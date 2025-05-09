@@ -1,79 +1,49 @@
+
 body {
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(to bottom, #ffe3e3, #ffbaba);
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #fdeff2;
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 
 .envelope {
-  position: relative;
-  width: 300px;
-  height: 200px;
-  background: #e74c3c;
-  border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  overflow: hidden;
-  cursor: pointer;
+    width: 300px;
+    height: 200px;
+    background: #c0392b;
+    position: relative;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: transform 1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
-.flap {
-  position: absolute;
-  top: 0;
-  width: 0;
-  height: 0;
-  border-left: 150px solid transparent;
-  border-right: 150px solid transparent;
-  border-bottom: 100px solid #c0392b;
-  transform-origin: top;
-  transition: transform 1s ease;
-  z-index: 3;
+.frente p {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
 }
 
-.flap.aberto {
-  transform: rotateX(-180deg);
+.mensagem {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-.frente {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 100px;
-  background: #e74c3c;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 18px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-}
-
-.letter {
-  position: absolute;
-  top: 100%;
-  left: 10px;
-  right: 10px;
-  background: white;
-  border-radius: 5px;
-  padding: 15px;
-  z-index: 1;
-  opacity: 0;
-  transition: top 1s ease, opacity 1s ease;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-.letter.mostrar {
-  top: 40px;
-  opacity: 1;
-}
-
-.assinatura {
-  margin-top: 10px;
-  font-style: italic;
-  text-align: right;
+.mensagem h1 {
+    color: #c0392b;
 }

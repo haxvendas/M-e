@@ -1,28 +1,21 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Carta para Mamãe</title>
-  <link rel="stylesheet" href="style.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiago para Lucia</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="envelope" onclick="abrirCarta()">
-    <div class="flap" id="flap"></div>
-    <div class="letter" id="letter">
-      <p>Para a melhor mamãe do mundo,<br><strong>te amo!</strong></p>
-      <p class="assinatura">De: Thiago</p>
+    <div class="envelope" onclick="abrirCarta()">
+        <div class="frente">
+            <p>Thiago para Lucia</p>
+        </div>
+        <div class="mensagem" id="mensagem">
+            <h1>Para a melhor mamãe do mundo,<br>te amo!</h1>
+        </div>
     </div>
-    <div class="frente">
-      <p>Para: Lucia</p>
-    </div>
-  </div>
-
-  <script>
-    function abrirCarta() {
-      document.getElementById("flap").classList.add("aberto");
-      document.getElementById("letter").classList.add("mostrar");
-    }
-  </script>
+    <script src="script.js"></script>
 </body>
 </html>
