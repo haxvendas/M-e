@@ -11,7 +11,7 @@ body {
 
 /* container com perspectiva */
 .card {
-  width: 320px; 
+  width: 320px;
   height: 200px;
   perspective: 1000px;
   cursor: pointer;
@@ -19,11 +19,11 @@ body {
 
 /* parte interna que gira */
 .card-inner {
-  width: 100%; 
+  width: 100%;
   height: 100%;
   position: relative;
   transform-style: preserve-3d;
-  transition: transform 0.8s ease;
+  transition: transform 0.6s ease-in-out; /* Ajustei a duração e a função de timing */
 }
 .card-inner.is-flipped {
   transform: rotateY(180deg);
@@ -32,7 +32,7 @@ body {
 /* faces do card */
 .card-face {
   position: absolute;
-  width: 100%; 
+  width: 100%;
   height: 100%;
   backface-visibility: hidden;
   border-radius: 12px;
@@ -48,6 +48,8 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
+  transform-origin: left center; /* Define a origem da transformação para a borda esquerda */
+  transition: transform 0.6s ease-in-out; /* Adiciona transição para a frente também */
 }
 .stamp {
   position: absolute;
@@ -58,6 +60,9 @@ body {
 .address p {
   margin: 6px 0;
   font-size: 18px;
+}
+.card.is-flipped .front {
+  transform: rotateY(-160deg); /* Rotação menor para simular a abertura */
 }
 
 /* verso (carta interna) */
