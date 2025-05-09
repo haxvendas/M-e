@@ -1,0 +1,73 @@
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #ffdde1, #ee9ca7);
+  font-family: 'Arial', sans-serif;
+}
+
+.card {
+  width: 300px;
+  height: 200px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  position: absolute;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-front {
+  background: #e74c3c;
+  color: white;
+  flex-direction: column;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.card-front .envelope {
+  text-align: center;
+  font-size: 18px;
+}
+
+.card-back {
+  background: white;
+  color: #c0392b;
+  transform: rotateY(180deg);
+  flex-direction: column;
+  padding: 20px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.card-back .message h2 {
+  margin: 0;
+  font-size: 20px;
+  text-align: center;
+}
+
+.card-back .message h3 {
+  margin-top: 10px;
+  font-size: 18px;
+  text-align: center;
+}
