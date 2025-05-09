@@ -7,22 +7,21 @@
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <div class="envelope-container" onclick="abrirCarta()">
-    <div class="envelope">
-      <div class="envelope-top" id="envelope-top"></div>
-      <div class="envelope-front">
-        <p class="to-from">Para: Lucia<br>De: Thiago</p>
-      </div>
-      <div class="letter" id="letter">
-        <p>Para a melhor mamãe do mundo,<br><strong>te amo!</strong></p>
-      </div>
+  <div class="envelope" onclick="abrirCarta()">
+    <div class="flap" id="flap"></div>
+    <div class="letter" id="letter">
+      <p>Para a melhor mamãe do mundo,<br><strong>te amo!</strong></p>
+      <p class="assinatura">De: Thiago</p>
+    </div>
+    <div class="frente">
+      <p>Para: Lucia</p>
     </div>
   </div>
 
   <script>
     function abrirCarta() {
-      document.getElementById("envelope-top").classList.add("open");
-      document.getElementById("letter").classList.add("show");
+      document.getElementById("flap").classList.add("aberto");
+      document.getElementById("letter").classList.add("mostrar");
     }
   </script>
 </body>
