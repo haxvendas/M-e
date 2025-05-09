@@ -5,4 +5,9 @@ function abrirCarta() {
     mensagem.style.flexDirection = 'column';
     mensagem.style.justifyContent = 'center';
     mensagem.style.alignItems = 'center';
+      <script>
+    function toggleFlip() {
+      document.querySelector('.card').classList.toggle('is-flipped');
+    }
+  </script>
 }
