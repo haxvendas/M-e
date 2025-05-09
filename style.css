@@ -1,49 +1,89 @@
-
+/* reset e corpo */
+* { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: #fdeff2;
-    margin: 0;
-    font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom, #ffe5e5, #ffcccc);
+  font-family: Arial, sans-serif;
 }
 
-.envelope {
-    width: 300px;
-    height: 200px;
-    background: #c0392b;
-    position: relative;
-    cursor: pointer;
-    border-radius: 10px;
-    transition: transform 1s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+/* container com perspectiva */
+.card {
+  width: 320px; 
+  height: 200px;
+  perspective: 1000px;
+  cursor: pointer;
 }
 
-.frente p {
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
+/* parte interna que gira */
+.card-inner {
+  width: 100%; 
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease;
+}
+.card-inner.is-flipped {
+  transform: rotateY(180deg);
 }
 
-.mensagem {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: white;
-    border-radius: 10px;
-    text-align: center;
-    padding: 20px;
-    box-sizing: border-box;
+/* faces do card */
+.card-face {
+  position: absolute;
+  width: 100%; 
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-.mensagem h1 {
-    color: #c0392b;
+/* frente (envelope) */
+.front {
+  background: #e74c3c;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.stamp {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 24px;
+}
+.address p {
+  margin: 6px 0;
+  font-size: 18px;
+}
+
+/* verso (carta interna) */
+.back {
+  background: #fff;
+  color: #e74c3c;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  text-align: center;
+}
+.badge {
+  background: #fde7e7;
+  color: #e74c3c;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.message p {
+  margin: 4px 0;
+  font-size: 18px;
+}
+.flower {
+  font-size: 32px;
+  margin-top: 8px;
 }
