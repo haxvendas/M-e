@@ -1,94 +1,63 @@
-/* reset e corpo */
-* { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: linear-gradient(to bottom, #ffe5e5, #ffcccc);
-  font-family: Arial, sans-serif;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    margin: 0;
 }
 
-/* container com perspectiva */
+.container {
+    text-align: center;
+}
+
+.card-container {
+    perspective: 1000px; /* Para efeito 3D */
+}
+
 .card {
-  width: 320px;
-  height: 200px;
-  perspective: 1000px;
-  cursor: pointer;
+    width: 150px;
+    height: 200px;
+    background-color: #e91e63; /* Cor da carta fechada */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 1s ease-in-out, margin-top 1s ease-in-out;
+    transform-style: preserve-3d; /* Ativa o 3D para os filhos */
+    position: relative;
 }
 
-/* parte interna que gira */
-.card-inner {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.6s ease-in-out; /* Ajustei a duração e a função de timing */
-}
-.card-inner.is-flipped {
-  transform: rotateY(180deg);
+.card.opened {
+    transform: rotateX(-180deg);
+    margin-top: -100px; /* Sobe a carta */
 }
 
-/* faces do card */
-.card-face {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+.card .front,
+.card .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Esconde a parte de trás quando rotacionada */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
 }
 
-/* frente (envelope) */
-.front {
-  background: #e74c3c;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  transform-origin: left center; /* Define a origem da transformação para a borda esquerda */
-  transition: transform 0.6s ease-in-out; /* Adiciona transição para a frente também */
-}
-.stamp {
-  position: absolute;
-  top: 12px;
-  right: 16px;
-  font-size: 24px;
-}
-.address p {
-  margin: 6px 0;
-  font-size: 18px;
-}
-.card.is-flipped .front {
-  transform: rotateY(-160deg); /* Rotação menor para simular a abertura */
+.card .back {
+    background-color: #fce4ec; /* Cor da carta aberta */
+    color: #e91e63;
+    transform: rotateX(180deg);
 }
 
-/* verso (carta interna) */
-.back {
-  background: #fff;
-  color: #e74c3c;
-  transform: rotateY(180deg);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 16px;
-  text-align: center;
-}
-.badge {
-  background: #fde7e7;
-  color: #e74c3c;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-.message p {
-  margin: 4px 0;
-  font-size: 18px;
-}
-.flower {
-  font-size: 32px;
-  margin-top: 8px;
+.card .back p {
+    font-size: 1.2em;
+    text-align: center;
+    padding: 15px;
+    line-height: 1.5;
 }
