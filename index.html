@@ -1,40 +1,46 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Carta Dia das Mães</title>
-  <link rel="stylesheet" href="style.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Dia das Mães!</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="card" onclick="toggleFlip()">
-    <div class="card-inner" id="cardInner">
-      
-      <!-- Frente do envelope -->
-      <div class="card-face front">
-        <div class="stamp">📮</div>
-        <div class="address">
-          <p>Para: Lucia</p>
-          <p>De: Thiago</p>
+    <div class="container">
+        <div class="card-container">
+            <div class="card">
+                <div class="front">
+                    💌
+                </div>
+                <div class="back">
+                    <p id="mensagem"></p>
+                </div>
+            </div>
         </div>
-      </div>
-      
-      <!-- Verso da carta -->
-      <div class="card-face back">
-        <div class="badge">#1 Mom</div>
-        <div class="message">
-          <p>Para a melhor mamãe do mundo,</p>
-          <p><strong>te amo!</strong></p>
-        </div>
-        <div class="flower">💐</div>
-      </div>
-
     </div>
-  </div>
+
     <script>
-    function toggleFlip() {
-      document.querySelector('.card').classList.toggle('is-flipped');
-    }
+        const card = document.querySelector('.card');
+        const mensagemElement = document.getElementById('mensagem');
+        const mensagensDiaDasMaes = [
+            "Mãe, seu amor é a luz que guia meus passos.",
+            "Feliz Dia das Mães para a mulher mais incrível da minha vida!",
+            "Seu carinho é o meu maior presente, mãe.",
+            "Obrigado por tudo, minha rainha!",
+            "Mãe, você é a inspiração do meu coração."
+            // Adicione mais frases inspiradoras aqui!
+        ];
+
+        card.addEventListener('click', () => {
+            card.classList.toggle('opened');
+            if (card.classList.contains('opened')) {
+                const randomIndex = Math.floor(Math.random() * mensagensDiaDasMaes.length);
+                mensagemElement.textContent = mensagensDiaDasMaes[randomIndex];
+            } else {
+                mensagemElement.textContent = ''; // Limpa a mensagem ao fechar
+            }
+        });
     </script>
 </body>
 </html>
