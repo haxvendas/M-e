@@ -1,13 +1,9 @@
 
-function abrirCarta() {
-    const mensagem = document.getElementById('mensagem');
-    mensagem.style.display = 'flex';
-    mensagem.style.flexDirection = 'column';
-    mensagem.style.justifyContent = 'center';
-    mensagem.style.alignItems = 'center';
-      <script>
-    function toggleFlip() {
-      document.querySelector('.card').classList.toggle('is-flipped');
-    }
-  </script>
+function openEnvelope() {
+  const envelope = document.getElementById('envelope');
+  const letter = document.getElementById('letter');
+  envelope.style.transform = 'rotateY(180deg)';
+  setTimeout(() => {
+    letter.classList.add('show');
+  }, 1000);
 }
