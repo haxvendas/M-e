@@ -17,24 +17,28 @@ body {
 }
 
 .card {
-    width: 150px;
-    height: 200px;
-    background-color: #e91e63; /* Cor da carta fechada */
-    color: white;
+    width: 200px; /* Aumentei um pouco o tamanho */
+    height: 150px; /* Ajustei a proporção para parecer mais com uma carta */
+    background-color: #f9f9f9; /* Cor de papel claro */
+    color: #333; /* Cor do texto */
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3em;
-    border-radius: 10px;
+    font-size: 2.5em;
+    border-radius: 5px;
     cursor: pointer;
-    transition: transform 1s ease-in-out, margin-top 1s ease-in-out;
+    transition: transform 0.8s ease-in-out, margin-top 0.8s ease-in-out, box-shadow 0.3s ease-in-out;
     transform-style: preserve-3d; /* Ativa o 3D para os filhos */
     position: relative;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1); /* Sombra suave inicial */
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACgommkAAAAEklEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='); /* Textura sutil de papel */
+    background-repeat: repeat;
 }
 
 .card.opened {
     transform: rotateX(-180deg);
-    margin-top: -100px; /* Sobe a carta */
+    margin-top: -80px; /* Ajustei o quanto sobe */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); /* Sombra mais pronunciada ao abrir */
 }
 
 .card .front,
@@ -46,18 +50,24 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 10px;
+    border-radius: 5px;
+}
+
+.card .front {
+    /* O emoji pode ser mantido ou substituído por algo mais visual */
+    font-size: 2em;
 }
 
 .card .back {
-    background-color: #fce4ec; /* Cor da carta aberta */
+    background-color: #fff; /* Branco para o verso da carta */
     color: #e91e63;
     transform: rotateX(180deg);
+    padding: 15px;
+    text-align: center;
+    line-height: 1.4;
 }
 
 .card .back p {
-    font-size: 1.2em;
-    text-align: center;
-    padding: 15px;
-    line-height: 1.5;
+    font-size: 1.1em;
+    margin: 0;
 }
