@@ -1,0 +1,86 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #ffe4ec, #f8cdd0);
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.envelope {
+  width: 300px;
+  height: 200px;
+  perspective: 1000px;
+  position: relative;
+  cursor: pointer;
+}
+
+.frente {
+  width: 100%;
+  height: 100%;
+  background: #d32f2f;
+  border-radius: 8px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+  z-index: 3;
+  transition: transform 1s ease;
+}
+
+.topo {
+  width: 0;
+  height: 0;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  border-bottom: 100px solid #b71c1c;
+  position: absolute;
+  top: -100px;
+  left: 0;
+  z-index: 4;
+  transition: transform 1s ease;
+  transform-origin: bottom center;
+}
+
+.mensagem {
+  position: absolute;
+  background: #fff8dc;
+  color: #4a148c;
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transform: translateY(80px);
+  opacity: 0;
+  transition: transform 1s ease, opacity 1s ease;
+  z-index: 2;
+  text-align: center;
+}
+
+.mensagem h1 {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.assinatura {
+  margin-top: 10px;
+  font-style: italic;
+  font-size: 0.9em;
+}
+
+/* Estado aberto */
+.envelope.aberto .frente {
+  transform: rotateX(-180deg);
+}
+
+.envelope.aberto .topo {
+  transform: rotateX(-180deg);
+}
+
+.envelope.aberto .mensagem {
+  transform: translateY(-240px);
+  opacity: 1;
+}
